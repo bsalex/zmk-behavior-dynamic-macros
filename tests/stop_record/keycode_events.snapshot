@@ -1,0 +1,13 @@
+zmk_behavior_dm_record: on_keymap_binding_pressed: Record behavior pressed, macro 0
+zmk_behavior_dynamic_macros_behavior_api: start_record: Started recording macro 0
+zmk_behavior_dynamic_macros_behavior_api: recording_event_handler: Recorded event: pos 0, state 0, delay 11
+zmk_behavior_dynamic_macros_behavior_api: recording_event_handler: Recorded event: pos 10, state 1, delay 11
+zmk_behavior_dynamic_macros_behavior_api: recording_event_handler: Recorded event: pos 10, state 0, delay 11
+zmk_behavior_dynamic_macros_behavior_api: recording_event_handler: Recorded event: pos 4, state 1, delay 11
+zmk_behavior_dm_record_stop: on_keymap_binding_pressed: Stop recording behavior pressed
+zmk_behavior_dynamic_macros_behavior_api: stop_record: Trimmed macro 0: -1 head, -1 tail. New len: 2
+zmk_behavior_dynamic_macros_behavior_api: stop_record: Stopped recording macro 0
+zmk_behavior_dm_play: on_keymap_binding_pressed: Play behavior pressed, macro 0
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Replaying event: pos 10, state 1
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Replaying event: pos 10, state 0
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Finished playing macro 0

@@ -1,0 +1,12 @@
+if ((NOT CONFIG_ZMK_SPLIT) OR CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
+  target_sources_ifdef(CONFIG_ZMK_BEHAVIOR_DYNAMIC_MACROS app PRIVATE src/dynamic_macros_behavior_api.c)
+  target_sources_ifdef(CONFIG_ZMK_BEHAVIOR_DYNAMIC_MACROS app PRIVATE src/dynamic_macros_sequence_store_api.c)
+  target_sources_ifdef(CONFIG_ZMK_BEHAVIOR_DYNAMIC_MACROS app PRIVATE src/behaviors/behavior_dm_record.c)
+  target_sources_ifdef(CONFIG_ZMK_BEHAVIOR_DYNAMIC_MACROS app PRIVATE src/behaviors/behavior_dm_play.c)
+  target_sources_ifdef(CONFIG_ZMK_BEHAVIOR_DYNAMIC_MACROS app PRIVATE src/behaviors/behavior_dm_record_stop.c)
+  target_sources_ifdef(CONFIG_ZMK_BEHAVIOR_DYNAMIC_MACROS app PRIVATE src/behaviors/behavior_dm_play_stop.c)
+  target_sources_ifdef(CONFIG_ZMK_BEHAVIOR_DYNAMIC_MACROS app PRIVATE src/behaviors/behavior_dm_play_loop.c)
+  target_sources_ifdef(CONFIG_ZMK_BEHAVIOR_DYNAMIC_MACROS app PRIVATE src/behaviors/behavior_dm_reset.c)
+
+  zephyr_include_directories(include)
+endif()

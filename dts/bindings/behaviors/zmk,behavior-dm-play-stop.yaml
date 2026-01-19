@@ -1,0 +1,5 @@
+description: Dynamic Macros Play Stop Behavior
+
+compatible: "zmk,behavior-dm-play-stop"
+
+include: zero_param.yaml

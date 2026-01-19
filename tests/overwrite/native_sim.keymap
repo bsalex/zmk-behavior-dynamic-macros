@@ -1,0 +1,41 @@
+/*
+ * Overwrite Test
+ *
+ * This test verifies that recording a macro again completely overwrites the previous content.
+ *
+ * Sequence:
+ * 1. Start Recording Macro 0
+ * 2. Press Key 0 and Key 1
+ * 3. Stop Recording
+ * 4. Start Recording Macro 0 (Again)
+ * 5. Press Key 4 (3,1) and Key 2 (2,0)
+ *    - Note: 2,0 is Stop Record, so this sequence might differ slightly in keymap, 
+ *      but intent is new keys.
+ * 6. Stop Recording (again)
+ * 7. Play Macro 0 (Position 1,0)
+ *
+ * Expected Result: Macro 0 should play ONLY the keys from the SECOND recording session.
+ */
+#include <dt-bindings/zmk/keys.h>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/kscan_mock.h>
+#include "../behavior_keymap.dtsi"
+
+&kscan {
+    events = <
+        ZMK_MOCK_PRESS(0,0,10)
+        ZMK_MOCK_RELEASE(0,0,10)
+        ZMK_MOCK_PRESS(5,0,10)
+        ZMK_MOCK_RELEASE(5,0,10)
+        ZMK_MOCK_PRESS(2,0,10)
+        ZMK_MOCK_RELEASE(2,0,10)
+        ZMK_MOCK_PRESS(0,0,10)
+        ZMK_MOCK_RELEASE(0,0,10)
+        ZMK_MOCK_PRESS(5,1,10)
+        ZMK_MOCK_RELEASE(5,1,10)
+        ZMK_MOCK_PRESS(2,0,10)
+        ZMK_MOCK_RELEASE(2,0,10)
+        ZMK_MOCK_PRESS(1,0,10)
+        ZMK_MOCK_RELEASE(1,0,100)
+    >;
+};

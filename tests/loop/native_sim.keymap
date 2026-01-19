@@ -1,0 +1,32 @@
+#include "../behavior_keymap.dtsi"
+
+&kscan {
+    events = <
+        /* Record 1 (Key 0,1) */
+        ZMK_MOCK_PRESS(0,1,10)
+        ZMK_MOCK_RELEASE(0,1,10)
+        /* Type N1 (Key 4,1) .. wait use N0 (5,0) to be safe or just index 2?
+           Original logic used key (1,0) which was &dm_play 0. That's bad for recording.
+           Let's use N0 (5,0).
+        */
+        ZMK_MOCK_PRESS(5,0,10)
+        ZMK_MOCK_RELEASE(5,0,10)
+        ZMK_MOCK_PRESS(5,0,10)
+        ZMK_MOCK_RELEASE(5,0,10)
+        
+        /* Stop Record (Key 2,0) */
+        ZMK_MOCK_PRESS(2,0,10)
+        ZMK_MOCK_RELEASE(2,0,10)
+
+        /* Play Loop 1 (Key 3,1) */
+        ZMK_MOCK_PRESS(3,1,10)
+        ZMK_MOCK_RELEASE(3,1,10)
+
+        /* Stop Play (Key 2,1) */
+        /* Wait 100ms to allow loops */
+        ZMK_MOCK_PRESS(5,1,100)
+        ZMK_MOCK_RELEASE(5,1,10)
+        ZMK_MOCK_PRESS(2,1,100)
+        ZMK_MOCK_RELEASE(2,1,10)
+    >;
+};

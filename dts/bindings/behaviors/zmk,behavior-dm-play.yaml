@@ -1,0 +1,5 @@
+description: Dynamic Macros Play Behavior
+
+compatible: "zmk,behavior-dm-play"
+
+include: one_param.yaml

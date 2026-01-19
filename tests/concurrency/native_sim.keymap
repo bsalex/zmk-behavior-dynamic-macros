@@ -1,0 +1,45 @@
+/*
+ * Concurrency (Recording Switch) Test
+ *
+ * This test verifies that starting a new recording while one is active correctly 
+ * terminates the first one and starts the second.
+ *
+ * Sequence:
+ * 1. Start Recording Macro 0 (Position 2,0)
+ * 2. Press & Release Key 0 (Position 0,0) - In Macro 0
+ * 3. Start Recording Macro 1 (Position 3,0) using Key 3 (mapped to Rec 1)
+ *    - This keypress is effectively "consumed" or acts as the stop trigger for Macro 0?
+ *    - Actually, the keypress that triggers "Rec 1" might be recorded in Macro 0 depending on timing/logic,
+ *      then Rec 0 triggered to stop, then Rec 1 triggered to start.
+ *    - The test verifies the state after this switch.
+ * 4. Press & Release Key 4 (Position 0,1) - In Macro 1
+ * 5. Press & Release Key 5 (Position 3,1) - In Macro 1
+ * 6. Stop Recording (Position 2,0)
+ * 7. Play Macro 0 (Position 1,0)
+ * 8. Play Macro 1 (Position 1,1)
+ *
+ * This ensures that the state machine handles transitions between active recording states correctly.
+ */
+#include <dt-bindings/zmk/keys.h>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/kscan_mock.h>
+#include "../behavior_keymap.dtsi"
+
+&kscan {
+    events = <
+        ZMK_MOCK_PRESS(0,0,10)
+        ZMK_MOCK_RELEASE(0,0,10)
+        ZMK_MOCK_PRESS(5,0,10)
+        ZMK_MOCK_RELEASE(5,0,10)
+        ZMK_MOCK_PRESS(0,1,10)
+        ZMK_MOCK_RELEASE(0,1,10)
+        ZMK_MOCK_PRESS(5,1,10)
+        ZMK_MOCK_RELEASE(5,1,10)
+        ZMK_MOCK_PRESS(2,0,10)
+        ZMK_MOCK_RELEASE(2,0,10)
+        ZMK_MOCK_PRESS(1,0,10)
+        ZMK_MOCK_RELEASE(1,0,100)
+        ZMK_MOCK_PRESS(1,1,10)
+        ZMK_MOCK_RELEASE(1,1,100)
+    >;
+};

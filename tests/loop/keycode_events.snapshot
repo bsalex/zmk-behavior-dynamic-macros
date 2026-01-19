@@ -1,0 +1,29 @@
+zmk_behavior_dm_record: on_keymap_binding_pressed: Record behavior pressed, macro 1
+zmk_behavior_dynamic_macros_behavior_api: start_record: Started recording macro 1
+zmk_behavior_dynamic_macros_behavior_api: recording_event_handler: Recorded event: pos 1, state 0, delay 11
+zmk_behavior_dynamic_macros_behavior_api: recording_event_handler: Recorded event: pos 10, state 1, delay 11
+zmk_behavior_dynamic_macros_behavior_api: recording_event_handler: Recorded event: pos 10, state 0, delay 11
+zmk_behavior_dynamic_macros_behavior_api: recording_event_handler: Recorded event: pos 10, state 1, delay 11
+zmk_behavior_dynamic_macros_behavior_api: recording_event_handler: Recorded event: pos 10, state 0, delay 11
+zmk_behavior_dynamic_macros_behavior_api: recording_event_handler: Recorded event: pos 4, state 1, delay 11
+zmk_behavior_dm_record_stop: on_keymap_binding_pressed: Stop recording behavior pressed
+zmk_behavior_dynamic_macros_behavior_api: stop_record: Trimmed macro 1: -1 head, -1 tail. New len: 4
+zmk_behavior_dynamic_macros_behavior_api: stop_record: Stopped recording macro 1
+zmk_behavior_dm_play_loop: on_keymap_binding_pressed: Play loop behavior pressed, macro 1
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Replaying event: pos 10, state 1
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Replaying event: pos 10, state 0
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Replaying event: pos 10, state 1
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Replaying event: pos 10, state 0
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Looping macro 1. Terminal delay 0, First delay 11. Waiting 11
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Replaying event: pos 10, state 1
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Replaying event: pos 10, state 0
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Replaying event: pos 10, state 1
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Replaying event: pos 10, state 0
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Looping macro 1. Terminal delay 0, First delay 11. Waiting 11
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Replaying event: pos 10, state 1
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Replaying event: pos 10, state 0
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Replaying event: pos 10, state 1
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Replaying event: pos 10, state 0
+zmk_behavior_dynamic_macros_behavior_api: play_next_event: Looping macro 1. Terminal delay 0, First delay 11. Waiting 11
+zmk_behavior_dm_play_stop: on_keymap_binding_pressed: Stop playing behavior pressed
+zmk_behavior_dynamic_macros_behavior_api: stop_play: Stopped playing macro 1

@@ -1,0 +1,59 @@
+#include <dt-bindings/zmk/keys.h>
+#include <behaviors.dtsi>
+/ {
+
+    kscan: native_posix_64_kscan_mock {
+		compatible = "zmk,kscan-mock";
+		label = "KSCAN_MOCK";
+
+		rows = <6>;
+		columns = <2>;
+		exit-after;
+	};
+
+    behaviors {
+        dm_record: dm_record {
+            compatible = "zmk,behavior-dm-record";
+            #binding-cells = <1>;
+        };
+
+        dm_play: dm_play {
+            compatible = "zmk,behavior-dm-play";
+            #binding-cells = <1>;
+        };
+
+        dm_record_stop: dm_record_stop {
+            compatible = "zmk,behavior-dm-record-stop";
+            #binding-cells = <0>;
+        };
+
+        dm_play_stop: dm_play_stop {
+            compatible = "zmk,behavior-dm-play-stop";
+            #binding-cells = <0>;
+        };
+
+        dm_play_loop: dm_play_loop {
+            compatible = "zmk,behavior-dm-play-loop";
+            #binding-cells = <1>;
+        };
+
+        dm_reset: dm_reset {
+            compatible = "zmk,behavior-dm-reset";
+            #binding-cells = <0>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+        default_layer {
+            bindings = <
+                &dm_record 0 &dm_record 1
+                &dm_play 0   &dm_play 1
+                &dm_record_stop &dm_play_stop
+                &dm_play_loop 0 &dm_play_loop 1
+                &dm_reset &none
+                &kp N0 &kp N1
+            >;
+        };
+    };
+};

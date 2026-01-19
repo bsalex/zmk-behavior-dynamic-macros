@@ -1,0 +1,23 @@
+/*
+ * Empty Play Test
+ *
+ * This test verifies that playing a macro that has never been recorded does not crash
+ * or produce undefined behavior.
+ *
+ * Sequence:
+ * 1. Play Macro 0 (Position 1,0)
+ *
+ * Expected Result: The behavior should detect the empty/terminal state and do nothing
+ * or log a warning, but not replay random events.
+ */
+#include <dt-bindings/zmk/keys.h>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/kscan_mock.h>
+#include "../behavior_keymap.dtsi"
+
+&kscan {
+    events = <
+        ZMK_MOCK_PRESS(1,0,10)
+        ZMK_MOCK_RELEASE(1,0,100)
+    >;
+};

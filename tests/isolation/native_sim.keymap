@@ -1,0 +1,30 @@
+/*
+ * Isolation Test
+ *
+ * This test verifies that recording one macro does not affect others.
+ *
+ * Sequence:
+ * 1. Start Recording Macro 0
+ * 2. Press some keys
+ * 3. Stop Recording Macro 0
+ * 4. Play Macro 1 (which has never been recorded)
+ *
+ * Expected Result: Macro 1 should be empty and play nothing.
+ */
+#include <dt-bindings/zmk/keys.h>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/kscan_mock.h>
+#include "../behavior_keymap.dtsi"
+
+&kscan {
+    events = <
+        ZMK_MOCK_PRESS(0,0,10)
+        ZMK_MOCK_RELEASE(0,0,10)
+        ZMK_MOCK_PRESS(5,1,10)
+        ZMK_MOCK_RELEASE(5,1,10)
+        ZMK_MOCK_PRESS(2,0,10)
+        ZMK_MOCK_RELEASE(2,0,10)
+        ZMK_MOCK_PRESS(1,1,10)
+        ZMK_MOCK_RELEASE(1,1,100)
+    >;
+};

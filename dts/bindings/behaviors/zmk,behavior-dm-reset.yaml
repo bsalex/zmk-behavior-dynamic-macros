@@ -1,0 +1,5 @@
+description: Dynamic Macros Reset behavior
+
+compatible: "zmk,behavior-dm-reset"
+
+include: zero_param.yaml

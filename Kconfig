@@ -1,0 +1,26 @@
+menu "Dynamic Macros Options"
+
+config ZMK_BEHAVIOR_DYNAMIC_MACROS
+	bool "enabled"
+	default n
+
+config ZMK_BEHAVIOR_DYNAMIC_MACROS_NUMBER
+    int "Number of dynamic macros"
+    default 5
+    depends on ZMK_BEHAVIOR_DYNAMIC_MACROS
+
+config ZMK_BEHAVIOR_DYNAMIC_MACROS_MAX_LENGTH
+    int "Max length of a macro sequence"
+    default 1000
+    depends on ZMK_BEHAVIOR_DYNAMIC_MACROS
+
+config ZMK_BEHAVIOR_DYNAMIC_MACROS_MAX_RECORDING_TIME
+    int "Max recording time (ms)"
+    default 60000
+    depends on ZMK_BEHAVIOR_DYNAMIC_MACROS
+
+endmenu
+
+module = ZMK_BEHAVIOR_DYNAMIC_MACROS
+module-str = zmk_behavior_dynamic_macros
+source "subsys/logging/Kconfig.template.log_config"

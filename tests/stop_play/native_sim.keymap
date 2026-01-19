@@ -1,0 +1,37 @@
+/*
+ * Stop Play Test
+ *
+ * This test verifies the functionality of explicitly stopping a playing macro.
+ *
+ * Sequence:
+ * 1. Start Recording Macro 0
+ * 2. Press a sequence of keys
+ * 3. Stop Recording
+ * 4. Play Macro 0 (Position 1,0)
+ * 5. Press & Release Stop Play (Position 2,1)
+ *
+ * Expected Result: The macro should start playing but cease immediately upon the Stop Play event.
+ */
+#include <dt-bindings/zmk/keys.h>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/kscan_mock.h>
+#include "../behavior_keymap.dtsi"
+
+&kscan {
+    events = <
+        ZMK_MOCK_PRESS(0,0,10)
+        ZMK_MOCK_RELEASE(0,0,10)
+        ZMK_MOCK_PRESS(5,0,10)
+        ZMK_MOCK_RELEASE(5,0,10)
+        ZMK_MOCK_PRESS(5,1,10)
+        ZMK_MOCK_RELEASE(5,1,10)
+        ZMK_MOCK_PRESS(5,0,10)
+        ZMK_MOCK_RELEASE(5,0,10)
+        ZMK_MOCK_PRESS(2,0,10)
+        ZMK_MOCK_RELEASE(2,0,10)
+        ZMK_MOCK_PRESS(1,0,10)
+        ZMK_MOCK_RELEASE(1,0,100) // Start play
+        ZMK_MOCK_PRESS(2,1,10) // Stop play
+        ZMK_MOCK_RELEASE(2,1,10)
+    >;
+};

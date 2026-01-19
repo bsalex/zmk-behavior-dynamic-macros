@@ -1,0 +1,2 @@
+zmk_behavior_dm_play: on_keymap_binding_pressed: Play behavior pressed, macro 0
+zmk_behavior_dynamic_macros_behavior_api: play_macro_common: Macro 0 is empty

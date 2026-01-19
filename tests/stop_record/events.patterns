@@ -1,0 +1,2 @@
+s/.*dm_.*:/&/p
+s/.*dynamic_macros.*:/&/p

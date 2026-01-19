@@ -1,0 +1,8 @@
+name: zmk-behavior-dynamic-macros
+version: 0.1.0
+description: ZMK Behavior Module for Dynamic Macros
+build:
+  cmake: .
+  kconfig: Kconfig
+  settings:
+    dts_root: .

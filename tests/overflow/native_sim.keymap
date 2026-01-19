@@ -1,0 +1,46 @@
+/*
+ * Overflow Test
+ *
+ * This test checks the behavior when recording a macro exceeds the configured buffer size.
+ *
+ * Configuration:
+ * - CONFIG_ZMK_BEHAVIOR_DYNAMIC_MACROS_MAX_LENGTH=4 (Reduced for test)
+ *
+ * Sequence:
+ * 1. Start Recording Macro 0
+ * 2. Press Key 0 (0,0) - Event 1
+ * 3. Press Key 1 (3,0) - Event 2
+ * 4. Press Key 2 (3,1) - Event 3
+ * 5. Press Key 3 (3,0) - Event 4 (Buffer potentially full or near full)
+ * 6. Continue pressing keys...
+ * 7. Stop Recording
+ * 8. Play Macro 0
+ *
+ * Expected Result: The macro should contain only the events that fit within the limit (5),
+ * and subsequent events should be ignored during recording. Playback should replay only the valid subset.
+ */
+#include <dt-bindings/zmk/keys.h>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/kscan_mock.h>
+#include "../behavior_keymap.dtsi"
+
+&kscan {
+    events = <
+        ZMK_MOCK_PRESS(0,0,10)
+        ZMK_MOCK_RELEASE(0,0,10)
+        ZMK_MOCK_PRESS(5,0,10)
+        ZMK_MOCK_RELEASE(5,0,10)
+        ZMK_MOCK_PRESS(5,1,10)
+        ZMK_MOCK_RELEASE(5,1,10)
+        ZMK_MOCK_PRESS(5,0,10)
+        ZMK_MOCK_RELEASE(5,0,10)
+        ZMK_MOCK_PRESS(5,1,10)
+        ZMK_MOCK_RELEASE(5,1,10)
+        ZMK_MOCK_PRESS(5,0,10)
+        ZMK_MOCK_RELEASE(3,0,10)
+        ZMK_MOCK_PRESS(2,0,10)
+        ZMK_MOCK_RELEASE(2,0,10)
+        ZMK_MOCK_PRESS(1,0,10)
+        ZMK_MOCK_RELEASE(1,0,100)
+    >;
+};

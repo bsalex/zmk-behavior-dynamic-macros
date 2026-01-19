@@ -1,0 +1,5 @@
+description: Dynamic Macros Loop Playback Behavior
+
+compatible: "zmk,behavior-dm-play-loop"
+
+include: one_param.yaml

@@ -1,0 +1,43 @@
+/*
+ * Reset Behavior Test
+ *
+ * Sequence:
+ * 1. Record Macro 0 (Position 0,0)
+ * 2. Press Key A (Position 3,0)
+ * 3. Stop Recording (Position 0,0)
+ * 4. Play Macro 0 (Position 1,0) -> Should output A
+ * 5. Reset (Position 2,0)
+ * 6. Play Macro 0 (Position 1,0) -> Should NOT output A
+ */
+#include <dt-bindings/zmk/keys.h>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/kscan_mock.h>
+#include "../behavior_keymap.dtsi"
+
+&kscan {
+    events = <
+        // 1. Record Macro 0
+        ZMK_MOCK_PRESS(0,0,10)
+        ZMK_MOCK_RELEASE(0,0,10)
+        
+        // 2. Press Key 0
+        ZMK_MOCK_PRESS(5,0,10)
+        ZMK_MOCK_RELEASE(5,0,10)
+
+        // 3. Stop Recording
+        ZMK_MOCK_PRESS(2,0,10)
+        ZMK_MOCK_RELEASE(2,0,10)
+
+        // 4. Play Macro 0
+        ZMK_MOCK_PRESS(1,0,10)
+        ZMK_MOCK_RELEASE(1,0,100)
+
+        // 5. Reset (4,0)
+        ZMK_MOCK_PRESS(4,0,10)
+        ZMK_MOCK_RELEASE(4,0,10)
+
+        // 6. Play Macro 0 (Should be empty)
+        ZMK_MOCK_PRESS(1,0,10)
+        ZMK_MOCK_RELEASE(1,0,100)
+    >;
+};

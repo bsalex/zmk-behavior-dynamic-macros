@@ -1,0 +1,5 @@
+description: Dynamic Macros Record Behavior
+
+compatible: "zmk,behavior-dm-record"
+
+include: one_param.yaml
